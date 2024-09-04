@@ -10,7 +10,7 @@ if ($user === '55') {
     $_SESSION['loggedin'] = true;
 
     // Aqui você pode redirecionar para outra página se quiser
-    header("Location: usuario.php");
+    header("Location: ../usuario.php");
     exit();
 
 } else {

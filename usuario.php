@@ -21,11 +21,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <main>
         <section id='container'>
             <div id='btn-wrapper'>
-                <button id='in'>Entrada</button>
-                <button id='out'>Saida</button>
-                <button id='report'>Relatório</button>
+                <button id='in' onclick="window.location.href='scripts/entrada.php'">Entrada</button>
+                <button id='out' onclick="window.location.href='scripts/saida.php'">Saida</button>
+                <button id='report' onclick="window.location.href='scripts/relatorio.php'">Relatório</button>
             </div>
-            <button id='logout'>Logout</button>
+            <button id='logout' onclick="window.location.href='scripts/logout.php'">Logout</button>
         </section>
     </main>
 </body>

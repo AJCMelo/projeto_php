@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 1rem;
+
+}
+
+:root {
+    --btn-login: #00b7ff;
+
+}
+
+main {
+    padding: 1rem;
+}
+
+section#container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+div#btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+button#in,
+button#out,
+button#report,
+button#logout {
+    width: 12rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.2rem 0.5rem;
+    
+}
+
+button#in:hover,
+button#out:hover,
+button#report:hover,
+button#logout:hover {
+    cursor: pointer;
+    background-color: var(--btn-login);
+
+}

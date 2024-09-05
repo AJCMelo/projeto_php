@@ -11,4 +11,4 @@ Caso não funcione:<br>
 user: qualquer container válido<br>
 pass: 123  <br>
 
-Senha utilizada para todos os container, caso diferente não faz login.
+Senha utilizada para todos os container, caso coloque uma senha diferente, não faz login.

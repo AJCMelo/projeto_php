@@ -17,6 +17,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Verifica se a conexão foi bem-sucedida
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
+    
 }
 
 // Obtém o nome do usuário do formulário de login
@@ -32,6 +33,7 @@ $stmt = $conn->prepare($query);
 
 if (!$stmt) {
     die("Falha na preparação da statement: " . $conn->error);
+
 }
 
 $stmt->bind_param("ii", $user_id, $acao);
@@ -39,6 +41,7 @@ $stmt->bind_param("ii", $user_id, $acao);
 // Executa a instrução
 if (!$stmt->execute()) {
     die("Erro na execução da consulta: " . $stmt->error);
+
 }
 
 $stmt->close();
@@ -48,6 +51,7 @@ $result = $conn->query("SELECT @p_saida_retorno AS retorno");
 
 if (!$result) {
     die("Erro ao buscar o resultado: " . $conn->error);
+
 }
 
 $row = $result->fetch_assoc();
@@ -62,10 +66,12 @@ if ($retorno === 1) { // Usar === para verificar o tipo e valor
     $_SESSION['loggedin'] = true; // Define a sessão como logada
     header("Location: ../usuario.php"); // Redireciona para a página do usuário
     exit();
+
 } else {
     // Falha no login
     echo "<script>alert('Usuário não encontrado.'); window.location.href='../index.html';</script>";
     exit();
+
 }
 
 // Fecha a conexão

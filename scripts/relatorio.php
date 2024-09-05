@@ -5,7 +5,7 @@ session_start(); // Inicia a sessão
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: ../index.html");
     exit();
-    
+
 }
 
 // Configurações do banco de dados
@@ -27,7 +27,7 @@ $container = (int)$_SESSION['container']; // Pega o container vigente
 $acao = 3; // Ação do relatório
 
 // Prepara a chamada da procedure
-$query = "CALL BD55.teste(?, ?, @p_saida_retorno)";
+$query = "CALL BD55.processachamada(?, ?, @p_saida_retorno, @p_saida_mensagem)";
 $stmt = $conn->prepare($query);
 
 if (!$stmt) {

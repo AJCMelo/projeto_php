@@ -1,4 +1,13 @@
 button#btn {
     width: 15rem;
+    margin-bottom: .5rem;
+    
+}
+
+div#back-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
     
 }

@@ -28,7 +28,7 @@ $acao = 4; // Define a ação como 4
 $user_id = (int)$user;
 
 // Prepara e executa a chamada da procedure para verificar o container/usuário
-$query = "CALL BD55.teste(?, ?, @p_saida_retorno)";
+$query = "CALL BD55.processachamada(?, ?, @p_saida_retorno, @p_saida_mensagem)";
 $stmt = $conn->prepare($query);
 
 if (!$stmt) {
@@ -57,10 +57,7 @@ if (!$result) {
 $row = $result->fetch_assoc();
 $retorno = (int)$row['retorno']; // Converter para inteiro
 
-// Depuração adicional
-echo "Retorno da procedure: " . $retorno . "<br>"; // Exibir o valor de retorno para depuração
-
-if ($retorno === 1) { // Usar === para verificar o tipo e valor
+if ($retorno === 1) {
     // Login bem-sucedido
     $_SESSION['container'] = $user_id; // Armazene o ID do usuário na sessão
     $_SESSION['loggedin'] = true; // Define a sessão como logada

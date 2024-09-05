@@ -13,6 +13,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Verifica se a conexão foi bem-sucedida
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
+
 }
 
 // Obtém o nome do usuário do formulário de login
@@ -35,14 +36,17 @@ $result = $stmt->get_result();
 if ($result && $result->num_rows > 0) {
     // Container/usuário encontrado, armazene a informação na sessão
     $_SESSION['container'] = $user_id; // ou outra informação relevante do resultado
+    $_SESSION['loggedin'] = true; // define a variavel de login
 
     // Redirecionar para a página do usuário
     header("Location: ../usuario.php");
     exit();
+
 } else {
     // Se o container/usuário não for encontrado, exibe uma mensagem de erro e redireciona de volta para o login
     echo "<script>alert('Usuário não encontrado.'); window.location.href='../index.html';</script>";
     exit();
+    
 }
 
 // Fecha a conexão

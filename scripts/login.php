@@ -22,6 +22,7 @@ if ($conn->connect_error) {
 
 // Obtém o nome do usuário do formulário de login
 $user = $_POST['user'];
+$pass = $_POST['pass'];
 $acao = 4; // Define a ação como 4
 
 // Convertendo o user para inteiro
@@ -57,7 +58,7 @@ if (!$result) {
 $row = $result->fetch_assoc();
 $retorno = (int)$row['retorno']; // Converter para inteiro
 
-if ($retorno === 1) {
+if ($retorno === 1 && $pass == '123') {
     // Login bem-sucedido
     $_SESSION['container'] = $user_id; // Armazene o ID do usuário na sessão
     $_SESSION['loggedin'] = true; // Define a sessão como logada
@@ -66,7 +67,7 @@ if ($retorno === 1) {
 
 } else {
     // Falha no login
-    echo "<script>alert('Usuário não encontrado.'); window.location.href='../index.php';</script>";
+    echo "<script>alert('Usuário ou senha não encontrado.'); window.location.href='../index.php';</script>";
     exit();
 
 }

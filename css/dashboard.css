@@ -1,21 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-weight: 400;
-    font-size: 1rem;
-
-}
-
-:root {
-    --btn-login: #00b7ff;
-
-}
-
-main {
-    padding: 1rem;
-}
-
 section#container {
     display: flex;
     flex-flow: column nowrap;

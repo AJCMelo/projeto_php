@@ -66,7 +66,7 @@ if ($retorno === 1) {
 
 } else {
     // Falha no login
-    echo "<script>alert('Usuário não encontrado.'); window.location.href='../index.html';</script>";
+    echo "<script>alert('Usuário não encontrado.'); window.location.href='../index.php';</script>";
     exit();
 
 }

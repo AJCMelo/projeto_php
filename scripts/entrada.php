@@ -1,6 +1,13 @@
 <?php
 session_start();
 
+// Verifica se o usuário está logado
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: index.php");
+    exit();
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +26,10 @@ session_start();
     
     <main>
         <div id="back-wrapper">
-            <span>Relatório container <?php echo $_SESSION['container']; ?></span>
-            <button id="btn">Marcar entrada</button>
+            <span>Container <?php echo $_SESSION['container']; ?></span>
+            <form action="marcar_entrada.php" method="post">
+                <button id="btn" <?php echo isset($_SESSION['marcouEntrada']) && $_SESSION['marcouEntrada'] === true ? 'disabled' : ''; ?>>Registrar entrada</button>
+            </form>
             <button id="btn" onclick="window.location.href='../usuario.php'">Voltar para tela inicial</button>
         </div>
     </main>

@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === true) {
+    header("Location: usuario.php");
+    exit();
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

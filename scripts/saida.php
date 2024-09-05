@@ -8,6 +8,15 @@
     <title>Saida</title>
 </head>
 <body>
-    <h1>saida</h1>
+    <header id="header">
+        <img src="../assets/ifrn-banner.png" alt="Logo IFRN">
+    </header>
+    
+    <main>
+        <div id="back-wrapper">
+            <span>Relatório container <?php echo $_SESSION['container']; ?></span>
+            <button id="btn" onclick="window.location.href='../usuario.php'">Voltar para tela inicial</button>
+        </div>
+    </main>
 </body>
 </html>

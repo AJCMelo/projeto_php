@@ -26,15 +26,3 @@ label#label > input:focus {
     outline: none;
 
 }
-
-button#btn {
-    width: 5rem;
-    padding: .2rem 0.5rem;
-    border: none;
-    border-radius: .5rem;
-}
-
-button#btn:hover {
-    cursor: pointer;
-    background: var(--btn-login);
-}

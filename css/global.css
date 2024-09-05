@@ -57,3 +57,11 @@ button#btn:hover {
     background: var(--btn-login);
     
 }
+
+button:disabled {
+    cursor: not-allowed; /* Define o cursor como "proibido" */
+    opacity: 0.5;
+    pointer-events: none; /* Desativa os eventos ao ser clicado */
+    
+}
+

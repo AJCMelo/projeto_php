@@ -1,14 +1,14 @@
 # Projeto PHP
 
 # Como ligar o servidor caso ele esteja desligado:
-/etc/init.d/httpd24-httpd restart
+/etc/init.d/httpd24-httpd restart.  <br>
 
-Caso não funcione:
-/etc/init.d/httpd24-httpd stop
+Caso não funcione:<br>
+/etc/init.d/httpd24-httpd stop<br>
 /etc/init.d/httpd24-httpd start
 
 # Usuário e senha:
-user: qualquer container válido
-pass: 123
+user: qualquer container válido<br>
+pass: 123  <br>
 
 Senha utilizada para todos os container, caso diferente não faz login.

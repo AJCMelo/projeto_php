@@ -79,19 +79,19 @@ if ($retorno == 1) {
 
     if ($retornoEntrada == 1) {
         // Se a entrada foi marcada com sucesso
-        echo "<script>alert('Entrada registrada com sucesso!'); window.location.href='../usuario.php';</script>";
+        echo "<script>alert('Entrada registrada com sucesso!');</script>";
         $_SESSION['marcouEntrada'] = true;
         exit();
 
     } else {
         // Se houve um erro ao tentar marcar a entrada
-        echo "<script>alert('$mensagemEntrada'); window.location.href='../usuario.php';</script>";
+        echo "<script>alert('Não há registro de aula no momento.'); window.location.href='../usuario.php';</script>";
         exit();
 
     }
 } else {
     // Se o retorno inicial não permitia marcar entrada, exibe a mensagem correspondente
-    echo "<script>alert('$mensagem'); window.location.href='../usuario.php';</script>";
+    echo "<script>alert('Não há registro de aula no momento.'); window.location.href='../usuario.php';</script>";
     exit();
 
 }

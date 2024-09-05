@@ -50,13 +50,13 @@ $result->free();
 
 // Verifica o resultado e redireciona ou exibe uma mensagem
 if ($retorno == 1) {
-    echo "<script>alert('Saída registrada com sucesso!');</script>";
+    echo "<script>alert('Saida registrada com sucesso!');</script>";
     $_SESSION['marcouEntrada'] = false; // Reseta o status de marcação de entrada
     $_SESSION['marcouSaida'] = true; // Reseta o status de marcação de entrada
     exit();
     
 } else {
-    echo "<script>alert('$mensagem'); window.location.href='../usuario.php';</script>";
+    echo "<script>alert('Não há marcação de entrada pendente de saida.'); window.location.href='../usuario.php';</script>";
     exit();
     
 }

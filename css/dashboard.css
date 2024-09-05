@@ -21,15 +21,18 @@ section#container {
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
 
+}
+
+span#containerID {
+    margin-bottom: 1rem;
 }
 
 div#btn-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    margin-bottom: 1rem;
 
 }
 
@@ -42,6 +45,11 @@ button#logout {
     border-radius: 1rem;
     padding: 0.2rem 0.5rem;
     
+}
+
+button#in,
+button#out {
+    margin-right: 1rem;
 }
 
 button#in:hover,

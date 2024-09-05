@@ -1,8 +1,12 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start(); // Inicia a sessão
 
 // Configurações do banco de dados
-$servername = "192.168.102.100"; // IP do seu servidor de banco de dados
+$servername = "192.168.102.100";
 $username = "container55";
 $password = "1F(255685)";
 $dbname = "BD55";
@@ -13,43 +17,57 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Verifica se a conexão foi bem-sucedida
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
-
 }
 
 // Obtém o nome do usuário do formulário de login
 $user = $_POST['user'];
-$acao = 4; // Define a ação como 4, conforme sua descrição
+$acao = 4; // Define a ação como 4
 
 // Convertendo o user para inteiro
 $user_id = (int)$user;
 
 // Prepara e executa a chamada da procedure para verificar o container/usuário
-$stmt = $conn->prepare("CALL BD55.processachamadacerta(?, ?)");
+$query = "CALL BD55.teste(?, ?, @p_saida_retorno)";
+$stmt = $conn->prepare($query);
 
-// Liga os parâmetros à consulta: "s" para string (user) e "i" para inteiro (acao)
+if (!$stmt) {
+    die("Falha na preparação da statement: " . $conn->error);
+}
+
 $stmt->bind_param("ii", $user_id, $acao);
-$stmt->execute();
 
-// Obter o resultado da procedure
-$result = $stmt->get_result();
+// Executa a instrução
+if (!$stmt->execute()) {
+    die("Erro na execução da consulta: " . $stmt->error);
+}
 
-if ($result && $result->num_rows > 0) {
-    // Container/usuário encontrado, armazene a informação na sessão
-    $_SESSION['container'] = $user_id; // ou outra informação relevante do resultado
-    $_SESSION['loggedin'] = true; // define a variavel de login
+$stmt->close();
 
-    // Redirecionar para a página do usuário
-    header("Location: ../usuario.php");
+// Obtém o valor de retorno da variável de saída
+$result = $conn->query("SELECT @p_saida_retorno AS retorno");
+
+if (!$result) {
+    die("Erro ao buscar o resultado: " . $conn->error);
+}
+
+$row = $result->fetch_assoc();
+$retorno = (int)$row['retorno']; // Converter para inteiro
+
+// Depuração adicional
+echo "Retorno da procedure: " . $retorno . "<br>"; // Exibir o valor de retorno para depuração
+
+if ($retorno === 1) { // Usar === para verificar o tipo e valor
+    // Login bem-sucedido
+    $_SESSION['container'] = $user_id; // Armazene o ID do usuário na sessão
+    $_SESSION['loggedin'] = true; // Define a sessão como logada
+    header("Location: ../usuario.php"); // Redireciona para a página do usuário
     exit();
-
 } else {
-    // Se o container/usuário não for encontrado, exibe uma mensagem de erro e redireciona de volta para o login
+    // Falha no login
     echo "<script>alert('Usuário não encontrado.'); window.location.href='../index.html';</script>";
     exit();
-    
 }
 
 // Fecha a conexão
-$stmt->close();
 $conn->close();
 ?>

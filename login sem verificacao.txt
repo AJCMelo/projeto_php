@@ -5,6 +5,7 @@ $user = $_POST['user'];
 
 if ($user === '55') {
     $_SESSION['loggedin'] = true;
+    $_SESSION['container'] = $user;
     header("Location: ../usuario.php");
     exit();
 } else {

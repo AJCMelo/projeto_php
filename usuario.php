@@ -2,9 +2,10 @@
 session_start(); // Inicia a sessão
 
 // Verifica se o usuário está logado
-if (!isset($_SESSION['container']) || $_SESSION['container'] !== true) {
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: index.html");
     exit();
+
 }
 
 ?>
@@ -20,6 +21,7 @@ if (!isset($_SESSION['container']) || $_SESSION['container'] !== true) {
 <body>
     <main>
         <section id='container'>
+            <span id="containerID">Container: <?php echo $_SESSION['container']; ?></span>
             <div id='btn-wrapper'>
                 <button id='in' onclick="window.location.href='scripts/entrada.php'">Entrada</button>
                 <button id='out' onclick="window.location.href='scripts/saida.php'">Saida</button>

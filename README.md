@@ -1,7 +1,7 @@
 # Projeto PHP
 
 # Como ligar o servidor caso ele esteja desligado:
-/etc/init.d/httpd24-httpd restart.  <br>
+/etc/init.d/httpd24-httpd restart  <br>
 
 Caso não funcione:<br>
 /etc/init.d/httpd24-httpd stop<br>
